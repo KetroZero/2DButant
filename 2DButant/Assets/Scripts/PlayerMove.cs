@@ -5,6 +5,7 @@ public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb;
+    public Animator playerAnimator;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -25,6 +26,9 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, vertical, 0);
         Move(direction);
+
+        playerAnimator.SetFloat("horizontalSpeed", rb.velocity.x);
+        playerAnimator.SetFloat("verticalSpeed", rb.velocity.y);
     }
 
 
